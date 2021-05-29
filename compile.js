@@ -11,4 +11,4 @@ const source = fs.readFileSync(inboxPath, "utf-8");
 
 // code for compiling solidity codes
 
-console.log(solc.compile(source, 1));
+module.exports = solc.compile(source, 1).contracts[":Inbox"]; // exporting only the Inbox key value from the data
