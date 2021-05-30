@@ -5,16 +5,17 @@ const Web3 = require("web3"); // Web3 is a constructor function, so we used uppe
 // creating a web3 instance with a provider
 const web3 = new Web3(ganache.provider());
 
-beforeEach(() => {
-  // get a list of all accounts from the ganache local network
+let accounts;
 
-  web3.eth.getAccounts().then((fetchedAccounts) => {
-    console.log(fetchedAccounts);
-  });
+beforeEach(async () => {
+  // get a list of all accounts from the ganache local network
+  accounts = await web3.eth.getAccounts();
 
   // use one of the those accounts to deploy the contract
 });
 
 describe("Inbox", () => {
-  it("deploys a contract", () => {});
+  it("deploys a contract", () => {
+    console.log(accounts);
+  });
 });
