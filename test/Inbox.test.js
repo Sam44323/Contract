@@ -28,4 +28,9 @@ describe("Inbox", () => {
   it("deploys a contract", () => {
     assert.ok(inbox.options.address); // checks for the existence(not null) of address
   });
+
+  it("has a default message", async () => {
+    const message = await inbox.methods.message().call();
+    assert.strictEqual(message, "Hi there!");
+  });
 });
